@@ -13,8 +13,8 @@
     </header>
     <main>
         <?php
-        $nome = $_GET['nome'] ?? "";
-        $sobrenome = $_GET['sobrenome'] ?? "Desconhecido";
+        $nome = $_POST['nome'] ?? "";
+        $sobrenome = $_POST['sobrenome'] ?? "Desconhecido";
         echo "É um prazer te conhecer, <strong> $nome $sobrenome </strong>.";
 
         ?>
