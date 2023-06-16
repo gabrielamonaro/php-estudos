@@ -27,8 +27,8 @@
 
         if($resultado != null)
         {
-            // print_r($resultado);
-          echo '<table class="table">';
+
+          echo '<table class="table m-3 mt-5 ">';
             foreach($resultado as $registro)
             {
                 echo '<tr class="d-flex justify-content-center  align-items-center">

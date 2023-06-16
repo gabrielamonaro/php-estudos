@@ -7,25 +7,57 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <title>Document</title>
 </head>
-<body>
+<body class="d-flex justify-content-center m-4">
     <?php
-    echo "<pre>";
-    print_r($_GET);
-    echo "</pre>";
     
-        $servername = "localhost";
-        $username = "root";
-        $password = "usbw";
-        $bdname = "pwii";
+    $servername = "localhost";
+    $username = "root";
+    $password = "usbw";
+    $bdname = "pwii";
 
-        $conexao = new mysqli ($servername, $username, $password, $bdname);
+    $conexao = new mysqli ($servername, $username, $password, $bdname);
 
-        if($conexao -> connect_error)
-        {
-            die("Connection failed: " . $conexao->connect_error);
-        }
+    if($conexao -> connect_error)
+    {
+        die("Connection failed: " . $conexao->connect_error);
+    }
+ 
+     $sql = "select * from amigo where codigo=" . $_GET['id'];
 
-        // $sql = "delete from amigo where "
+     $resultado = $conexao -> query ($sql);
+
+     foreach($resultado as $registro)
+     {
+         // echo ;
+     }
+
+     
+     if($resultado != null)
+     {
+         echo '
+         
+         <form action="atualizarAction.php ?id=' . $registro['codigo'] . '" method="post" class="w-50 container d-flex flex-column">
+         <label for="codigo">Código</label>
+         <input class="form-control" type="text" name="codigo" value= " ' . $registro['codigo'] . ' " disabled>
+
+         <label for="nome">Nome</label>
+         <input class="form-control" type="text" name="nome"  value= " ' . $registro['nome'] . ' " >
+
+         <label for="apelido">Apelido</label>
+         <input class="form-control" type="text" name="apelido"  value= " ' . $registro['apelido'] . ' " >
+
+         <label for="email">e-mail</label>
+         <input class="form-control" type="text" name="email"  value= " ' . $registro['email'] . ' " >
+
+         <button class="btn btn-success mt-2">
+             Atualizar Registro
+         </button>
+     </form>
+
+         ';
+     }
     ?>
+
+    
 </body>
 </html>

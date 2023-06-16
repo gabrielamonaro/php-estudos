@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1 class="container w-50"> Cadastro de Amigos</h1>
+<h1 class="container text-center"> Cadastro de Amigos</h1>
 
 <form action="cadastroAction.php" method="post" class="w-50 container d-flex flex-column">
     <label for="codigo">Código</label>
